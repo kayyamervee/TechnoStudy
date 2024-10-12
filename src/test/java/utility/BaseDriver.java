@@ -13,7 +13,7 @@ import java.time.Duration;
 public class BaseDriver {
 
     public static WebDriver driver;
-    public WebDriverWait wait;
+    public static WebDriverWait wait;
 
     @BeforeClass
     public void start() {

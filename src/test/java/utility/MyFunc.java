@@ -23,13 +23,13 @@ public class MyFunc extends BaseDriver {
         js.executeScript("arguments[0].click();", element);
     }
 
-    public void myClick(WebElement element) {
+    public static void myClick(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
         scrollToElement(element);
         element.click();
     }
 
-    public void mySendKeys(WebElement element, String text) {
+    public static void mySendKeys(WebElement element, String text) {
         wait.until(ExpectedConditions.visibilityOf(element));
         scrollToElement(element);
         element.clear();
