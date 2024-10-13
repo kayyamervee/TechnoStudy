@@ -1,4 +1,5 @@
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.SubmenuSocialMedia_POM;
 import utility.BaseDriver;
@@ -16,10 +17,5 @@ public class US_SubmenuSocialMedia extends BaseDriver {
 
         MyFunc.scrollToElement(element.facebookIcon);
         MyFunc.myClick(element.facebookIcon);
-
-//        String verify=element.facebookVerify.getText();
-//        Assert.assertTrue(verify.contains("facebook"));
-
-
     }
 }
