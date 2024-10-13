@@ -16,10 +16,5 @@ public class US_SubmenuSocialMedia extends BaseDriver {
 
         MyFunc.scrollToElement(element.facebookIcon);
         MyFunc.myClick(element.facebookIcon);
-
-//        String verify=element.facebookVerify.getText();
-//        Assert.assertTrue(verify.contains("facebook"));
-
-
     }
 }
