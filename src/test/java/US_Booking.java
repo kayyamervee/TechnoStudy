@@ -88,6 +88,9 @@ public class US_Booking extends BaseDriver {
             }
 
             MyFunc.myClick(element.checkBox);
+            Assert.assertTrue(element.checkBox.isDisplayed());
+            Assert.assertTrue(element.checkBox.isEnabled());
+
             MyFunc.myClick(element.submitButton);
 
             wait.until(ExpectedConditions.visibilityOf(element.confirmMessage));

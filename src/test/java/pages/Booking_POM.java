@@ -8,7 +8,6 @@ import utility.BaseDriver;
 import java.util.List;
 
 public class Booking_POM {
-
     public Booking_POM() {
         PageFactory.initElements(BaseDriver.driver,this);
     }
