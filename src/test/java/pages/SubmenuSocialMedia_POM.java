@@ -14,7 +14,7 @@ public class SubmenuSocialMedia_POM {
     @FindBy(css = "[data-field-top-value='170'] a")
     public WebElement facebookIcon;
 
-    @FindBy(css = "(//div[@data-field-top-value='169']//a)[1]")
+    @FindBy(xpath = "(//div[@data-field-top-value='169']//a)[1]")
     public WebElement instagramIcon;
 
     @FindBy(xpath = "(//div[@data-field-top-value='169']//a)[2]")
@@ -22,9 +22,6 @@ public class SubmenuSocialMedia_POM {
 
     @FindBy(xpath = "(//div[@data-field-top-value='169']//a)[3]")
     public WebElement linkedInIcon;
-
-    @FindBy(css = "[aria-label='Close']")
-    public WebElement facebookLoginClose;
 
     @FindBy(css = "[aria-label='Facebook']")
     public WebElement facebookVerify;
@@ -35,7 +32,16 @@ public class SubmenuSocialMedia_POM {
     @FindBy(id = "logo-icon")
     public WebElement youtubeVerify;
 
-    @FindBy(css = "[aria-label='LinkedIn']")
+    @FindBy(xpath = "(//*[text()='Home'])[3]")
+    public WebElement youTubeVideo;
+
+    @FindBy(xpath = "//*[text()='LinkedIn']")
     public WebElement linkedInVerify;
+
+    @FindBy(xpath = "//section[@role='dialog']/button")
+    public WebElement linkedInLoginClose;
+
+    @FindBy(xpath = "//div[contains(@class,'leftcontainer')]//img")
+    public WebElement technoLogo;
 }
 
