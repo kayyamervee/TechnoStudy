@@ -1,2 +1,88 @@
-public class US_SubmenuCourses {
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import pages.SubmenuCourses_POM;
+import utility.BaseDriver;
+import utility.ConfigReader;
+import utility.MyFunc;
+
+public class US_SubmenuCourses extends BaseDriver {
+    @Test
+    public void subMenuCourses() {
+        SubmenuCourses_POM element = new SubmenuCourses_POM();
+
+        driver.get(ConfigReader.getProperty("URL"));
+        wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("URL")));
+
+        MyFunc.myClick(element.courseDropdown);
+        Assert.assertTrue(element.sdet.isDisplayed());
+
+        MyFunc.myClick(element.sdet);
+        wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("sdetURL")));
+        Assert.assertTrue(driver.getCurrentUrl().contains("sdet"));
+
+        System.out.println(element.controlTextSdet.isDisplayed());
+        Assert.assertTrue(element.controlTextSdet.getText().contains("TEST"));
+
+        Assert.assertTrue(element.shortTextSdet.isDisplayed());
+        Assert.assertTrue(element.shortTextSdet.getText().contains("Yoğun Online Eğitim Kampı"));
+
+        MyFunc.myClick(element.courseDropdown);
+        Assert.assertTrue(element.androidApp.isDisplayed());
+
+        MyFunc.myClick(element.androidApp);
+        wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("androidAppURL")));
+        Assert.assertTrue(driver.getCurrentUrl().contains("android"));
+
+        System.out.println(element.controlTextAndroid.isDisplayed());
+        Assert.assertTrue(element.controlTextAndroid.getText().contains("Android"));
+
+        MyFunc.jsClick(element.androidButton);
+        Assert.assertTrue(element.shortTextAndroid.getText().contains("Android"));
+
+        MyFunc.myClick(element.courseDropdown);
+        Assert.assertTrue(element.sdet.isDisplayed());
+
+//        MyFunc.myClick(element.dataScience);
+//        wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("dataScienceURL")));
+//        Assert.assertTrue(driver.getCurrentUrl().contains("veribilimi"));
+//
+////        System.out.println(element.controlTextDataSci.getText());
+////        Assert.assertTrue(element.controlTextDataSci.getText().contains("Veri Bilimi Bootcamp"));
+//
+////        MyFunc.jsClick(element.dataSciButton);
+//
+//        element.controlTextDataSci.isDisplayed();
+//        System.out.println(element.shorTextData.getText());
+//        Assert.assertTrue(element.shorTextData.getText().contains("Online"));
+
+        MyFunc.myClick(element.courseDropdown);
+        Assert.assertTrue(element.jobCenter.isDisplayed());
+
+        MyFunc.myClick(element.jobCenter);
+        wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("jobCenterURL")));
+        Assert.assertTrue(driver.getCurrentUrl().contains("jobcenter"));
+
+        MyFunc.jsClick(element.detailedInfoButton);
+
+        System.out.println(element.jobCenterShortText.getText());
+//        Assert.assertTrue(element.jobCenterShortText.getText().contains("Techno "));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
 }
