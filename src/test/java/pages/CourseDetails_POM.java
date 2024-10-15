@@ -35,11 +35,20 @@ public class CourseDetails_POM {
     @FindBy(xpath = "(//*[text()='Detaylı bilgi'])[3]")
     public WebElement androidApplicationButton;
 
+    @FindBy(xpath = "(//*[text()='Android Uygulama Geliştirme'])[3]")
+    public WebElement androidApplicationText;
+
     @FindBy(xpath = "//*[text()='Detaylı bilgi']")
     public WebElement detailedButtonSecond;
 
     @FindBy(xpath = "(//p[@style='text-align: center;'])[4]")
     public WebElement informationField;
+
+    @FindBy(xpath = "(//p[@style='text-align: center;'])[6]")
+    public WebElement informationFieldSecond;
+
+    @FindBy(xpath = "//*[.='Mezunlarımızı neler bekliyor?']")
+    public WebElement informationFieldThird;
 
     @FindBy(xpath = "(//*[text()='Veri Bilimi'])[2]")
     public WebElement dataScience;

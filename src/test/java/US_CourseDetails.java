@@ -31,10 +31,13 @@ public class US_CourseDetails extends BaseDriver {
         Assert.assertTrue(element.courseAndroidApplication.isDisplayed());
 
         MyFunc.myClick(element.androidApplicationButton);
+        Assert.assertTrue(element.androidApplicationText.isDisplayed());
         MyFunc.myClick(element.detailedButtonSecond);
 
         MyFunc.scrollToElement(element.informationField);
         Assert.assertTrue(element.informationField.isDisplayed());
+        Assert.assertTrue(element.informationFieldSecond.isDisplayed());
+        Assert.assertTrue(element.informationFieldThird.isDisplayed());
 
         Assert.assertTrue(element.technoLogo.isDisplayed());
         MyFunc.myClick(element.technoLogo);
@@ -47,7 +50,6 @@ public class US_CourseDetails extends BaseDriver {
 
         wait.until(ExpectedConditions.visibilityOf(element.onlineText));
         Assert.assertTrue(element.onlineText.isDisplayed());
-        System.out.println(element.onlineText.getText());
 
         MyFunc.myClick(element.detailedButton);
 
