@@ -32,9 +32,6 @@ public class SubmenuSocialMedia_POM {
     @FindBy(id = "logo-icon")
     public WebElement youtubeVerify;
 
-    @FindBy(xpath = "(//*[text()='Home'])[3]")
-    public WebElement youTubeVideo;
-
     @FindBy(xpath = "//*[text()='LinkedIn']")
     public WebElement linkedInVerify;
 
