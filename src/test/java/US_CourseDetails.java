@@ -44,9 +44,14 @@ public class US_CourseDetails extends BaseDriver {
         Assert.assertTrue(element.dataScience.isDisplayed());
 
         MyFunc.myClick(element.dataScienceButton);
+
+        wait.until(ExpectedConditions.visibilityOf(element.onlineText));
+        Assert.assertTrue(element.onlineText.isDisplayed());
+        System.out.println(element.onlineText.getText());
+
         MyFunc.myClick(element.detailedButton);
 
-        MyFunc.scrollToElement(element.scrollContent);
+        wait.until(ExpectedConditions.visibilityOf(element.dataScienceContent));
         Assert.assertTrue(element.dataScienceContent.isDisplayed());
 
         Assert.assertTrue(element.technoLogo.isDisplayed());

@@ -14,7 +14,7 @@ public class CourseDetails_POM {
     @FindBy(xpath = "//*[text()='SDET']")
     public WebElement courseSDET;
 
-    @FindBy(css = "[data-field-top-value='650']")
+    @FindBy(xpath = "(//*[text()='Detaylı bilgi'])[2]")
     public WebElement detailedInformationButton;
 
     @FindBy(xpath = "//*[text()='Şimdi Başvur']")
@@ -32,27 +32,27 @@ public class CourseDetails_POM {
     @FindBy(xpath = "//*[text()='Android Uygulama Geliştiricisi']")
     public WebElement courseAndroidApplication;
 
-    @FindBy(css = "[data-field-top-value='1060']")
+    @FindBy(xpath = "(//*[text()='Detaylı bilgi'])[3]")
     public WebElement androidApplicationButton;
 
-    @FindBy(css = "[data-field-top-value='330']")
+    @FindBy(xpath = "//*[text()='Detaylı bilgi']")
     public WebElement detailedButtonSecond;
 
     @FindBy(xpath = "(//p[@style='text-align: center;'])[4]")
     public WebElement informationField;
 
-    @FindBy(css = "[data-field-top-value='1210']")
+    @FindBy(xpath = "(//*[text()='Veri Bilimi'])[2]")
     public WebElement dataScience;
 
-    @FindBy(css = "[data-field-top-value='1480']")
+    @FindBy(xpath = "//*[text()='Detaylı bilgi']")
     public WebElement dataScienceButton;
 
-    @FindBy(css = "[data-field-top-value='320']")
+    @FindBy(xpath = "//*[text()='Detaylı bilgi']")
     public WebElement detailedButton;
 
-    @FindBy(css = "[data-field-top-value='225']")
-    public WebElement scrollContent;
+    @FindBy(xpath = "//div[.='Online Veri Bilimi Dersleri']")
+    public WebElement onlineText;
 
-    @FindBy(css = "[data-field-top-value='-339']")
+    @FindBy(xpath = "//*[.='Techno Study ile Veri Bilimci Olun']")
     public WebElement dataScienceContent;
 }
