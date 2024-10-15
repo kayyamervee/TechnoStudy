@@ -37,4 +37,22 @@ public class CourseDetails_POM {
 
     @FindBy(css = "[data-field-top-value='330']")
     public WebElement detailedButtonSecond;
+
+    @FindBy(xpath = "(//p[@style='text-align: center;'])[4]")
+    public WebElement informationField;
+
+    @FindBy(css = "[data-field-top-value='1210']")
+    public WebElement dataScience;
+
+    @FindBy(css = "[data-field-top-value='1480']")
+    public WebElement dataScienceButton;
+
+    @FindBy(css = "[data-field-top-value='320']")
+    public WebElement detailedButton;
+
+    @FindBy(css = "[data-field-top-value='225']")
+    public WebElement scrollContent;
+
+    @FindBy(css = "[data-field-top-value='-339']")
+    public WebElement dataScienceContent;
 }
