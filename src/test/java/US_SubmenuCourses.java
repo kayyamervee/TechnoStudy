@@ -1,5 +1,3 @@
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -37,6 +35,7 @@ public class US_SubmenuCourses extends BaseDriver {
         Assert.assertTrue(driver.getCurrentUrl().contains("android"));
 
         System.out.println(element.controlTextAndroid.isDisplayed());
+        Assert.assertTrue(element.controlTextAndroid.isDisplayed());
         Assert.assertTrue(element.controlTextAndroid.getText().contains("Android"));
 
         MyFunc.jsClick(element.androidButton);
@@ -45,18 +44,15 @@ public class US_SubmenuCourses extends BaseDriver {
         MyFunc.myClick(element.courseDropdown);
         Assert.assertTrue(element.sdet.isDisplayed());
 
-//        MyFunc.myClick(element.dataScience);
-//        wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("dataScienceURL")));
-//        Assert.assertTrue(driver.getCurrentUrl().contains("veribilimi"));
-//
-////        System.out.println(element.controlTextDataSci.getText());
-////        Assert.assertTrue(element.controlTextDataSci.getText().contains("Veri Bilimi Bootcamp"));
-//
-////        MyFunc.jsClick(element.dataSciButton);
-//
-//        element.controlTextDataSci.isDisplayed();
-//        System.out.println(element.shorTextData.getText());
-//        Assert.assertTrue(element.shorTextData.getText().contains("Online"));
+        MyFunc.myClick(element.dataScience);
+        wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("dataScienceURL")));
+        Assert.assertTrue(element.controlTextDataSci.getAccessibleName().contains("Veri Bilimi"));
+
+        wait.until(ExpectedConditions.visibilityOf(element.detailedInfoButton));
+        MyFunc.jsClick(element.detailedInfoButton);
+
+        element.controlTextDataSci.isDisplayed();
+        Assert.assertTrue(element.shorTextData.getText().contains("Online"));
 
         MyFunc.myClick(element.courseDropdown);
         Assert.assertTrue(element.jobCenter.isDisplayed());
@@ -65,24 +61,13 @@ public class US_SubmenuCourses extends BaseDriver {
         wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("jobCenterURL")));
         Assert.assertTrue(driver.getCurrentUrl().contains("jobcenter"));
 
+        wait.until(ExpectedConditions.visibilityOf(element.jobCenterControlText));
+        Assert.assertTrue(element.jobCenterControlText.getText().contains("Yeni"));
+
+        wait.until(ExpectedConditions.elementToBeClickable(element.detailedInfoButton));
         MyFunc.jsClick(element.detailedInfoButton);
 
-        System.out.println(element.jobCenterShortText.getText());
-//        Assert.assertTrue(element.jobCenterShortText.getText().contains("Techno "));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        wait.until(ExpectedConditions.visibilityOf(element.jobCenterShortText));
+        Assert.assertTrue(element.jobCenterShortText.getText().contains("Techno"));
     }
 }

@@ -37,7 +37,7 @@ public class SubmenuCourses_POM {
     @FindBy(linkText = "Veri Bilimi")
     public WebElement dataScience;
 
-    @FindBy(xpath = "//div[contains(text(),'Veri Bilimi Bootcamp')]")
+    @FindBy(xpath = "//div[@data-field-top-value='50']/h2")
     public WebElement controlTextDataSci;
 
     @FindBy(xpath = "//a[text()='Detaylı bilgi']")
@@ -49,12 +49,9 @@ public class SubmenuCourses_POM {
     @FindBy(linkText = "Job Center & Arbeitsamt")
     public WebElement jobCenter;
 
-    @FindBy(xpath = "//*[contains(text(),'Yeni Bir')]/br")
+    @FindBy(css = "[data-field-left-value='554'] div")
     public WebElement jobCenterControlText;
 
-    @FindBy(xpath = ".+, u ")
+    @FindBy(xpath = "(//div[contains(text(),'Techno Study')])[2]")
     public WebElement jobCenterShortText;
-
-
-
 }
