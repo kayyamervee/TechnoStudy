@@ -53,6 +53,6 @@ public class US_SubmenuSocialMedia extends BaseDriver {
         Assert.assertTrue(element.linkedInVerify.isDisplayed());
 
         driver.navigate().back();
-        Assert.assertTrue(element.technoLogo.isDisplayed(), "home page could not be reached");
+        Assert.assertTrue(element.technoLogo.isDisplayed());
     }
 }
