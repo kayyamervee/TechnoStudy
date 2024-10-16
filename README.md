@@ -42,7 +42,7 @@
 
 **4. Smoke and Regression Testing:** Separate XML files for smoke and regression test cases.
 
-**5. Live Environment Considerations:** Use "test" in the name and email fields to facilitate data cleanup post-testing, and set the country to "Andorra".
+**5. Live Environment Considerations:** Use "test" in the name and email fields to facilitate data cleanup post-testing, and set the country to "Argentina".
 
 ## Contributors
   
