@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="My Suite" parallel="tests" thread-count="2">
+
+    <test name="My Test 1">
+        <parameter name="browserType" value="chrome"></parameter>
+
+        <classes>
+            <class name="runner.Runner"></class>
+        </classes>
+    </test>
+
+    <test name="My Test 2">
+        <parameter name="browserType" value="firefox"></parameter>
+
+        <classes>
+            <class name="runner.Runner"></class>
+        </classes>
+    </test>
+
+</suite>

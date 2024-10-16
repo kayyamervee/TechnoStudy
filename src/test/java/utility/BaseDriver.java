@@ -4,9 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
 import java.time.Duration;
 
@@ -15,9 +17,10 @@ public class BaseDriver {
     public static WebDriver driver;
     public static WebDriverWait wait;
 
-    @BeforeClass
-    public void start() {
-        switch (ConfigReader.getProperty("browser").toLowerCase()) {
+    @BeforeClass(groups = {"Smoke Test","Regression Test"})
+    @Parameters("browserType")
+    public void setUp(String browserType) {
+        switch (browserType.toLowerCase()) {
             case "firefox": driver = new FirefoxDriver();break;
             case "edge": driver = new EdgeDriver();break;
             case "chrome": driver = new ChromeDriver();
@@ -25,9 +28,11 @@ public class BaseDriver {
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+        driver.get(ConfigReader.getProperty("URL"));
+        wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("URL")));
     }
 
-    @AfterClass
+    @AfterClass(groups = {"Smoke Test","Regression Test"})
     public void tearDown() {
         MyFunc.Wait(4);
         driver.quit();

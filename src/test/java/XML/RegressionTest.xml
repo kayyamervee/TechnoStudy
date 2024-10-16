@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="My Suite" >
+    <groups>
+        <run>
+            <include name="Regression Test"></include>
+        </run>
+    </groups>
+
+    <test name="My Test">
+        <parameter name="browserType" value="chrome"></parameter>
+
+        <classes>
+            <class name="runner.Runner"></class>
+        </classes>
+    </test>
+
+</suite>
