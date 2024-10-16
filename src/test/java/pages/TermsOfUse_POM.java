@@ -8,7 +8,6 @@ import utility.BaseDriver;
 public class TermsOfUse_POM{
     public TermsOfUse_POM(){PageFactory.initElements(BaseDriver.driver,this);
     }
-
     @FindBy(xpath = "//div[@class='t-checkbox__indicator']")
     public WebElement checkbox;
 
