@@ -6,8 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import utility.BaseDriver;
 
 public class CrossToCampus_POM{
-    public CrossToCampus_POM(){
-        PageFactory.initElements(BaseDriver.driver,this);
+    public CrossToCampus_POM(){PageFactory.initElements(BaseDriver.driver,this);
     }
 
     @FindBy(xpath = "//a[text()='Campus Login']")

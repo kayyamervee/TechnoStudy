@@ -1,4 +1,5 @@
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CrossToCampus_POM;
 import utility.BaseDriver;
@@ -23,5 +24,8 @@ public class US_CrossToCampus extends BaseDriver {
 
         wait.until(ExpectedConditions.elementToBeClickable(elements.button));
         elements.button.click();
+
+        wait.until(ExpectedConditions.visibilityOf(elements.button));
+        Assert.assertTrue(elements.button.getText().contains("Login to campus failed"));
     }
 }
