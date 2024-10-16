@@ -13,7 +13,7 @@
 
 ## Project Overview
 
-### *This project focuses on automating tests for the Techno Study website using TestNG, a popular testing framework for Java. The aim is to ensure that various functionalities of the website work correctly while maintaining data integrity on the live environment.
+### *This project focuses on automating tests for the Techno Study website using TestNG, a popular testing framework for Java. The aim is to ensure that various functionalities of the website work correctly while maintaining data integrity on the live environment.*
 
 ## Prerequisites
 
