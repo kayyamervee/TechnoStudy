@@ -27,5 +27,6 @@ public class US_CrossToCampus extends BaseDriver {
 
         wait.until(ExpectedConditions.visibilityOf(elements.button));
         Assert.assertTrue(elements.button.getText().contains("Login to campus failed"));
+
     }
 }
