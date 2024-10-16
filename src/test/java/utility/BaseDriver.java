@@ -6,9 +6,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.time.Duration;
 
@@ -16,7 +14,7 @@ public class BaseDriver {
     public static WebDriver driver;
     public static WebDriverWait wait;
 
-    @BeforeClass(groups = {"Smoke Test","Regression Test"})
+    @BeforeMethod(groups = {"Smoke Test","Regression Test"})
     @Parameters("browserType")
     public void setUp(String browserType) {
         switch (browserType.toLowerCase()) {
@@ -31,7 +29,7 @@ public class BaseDriver {
         wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("URL")));
     }
 
-    @AfterClass(groups = {"Smoke Test","Regression Test"})
+    @AfterMethod(groups = {"Smoke Test","Regression Test"})
     public void tearDown() {
         MyFunc.Wait(4);
         driver.quit();
