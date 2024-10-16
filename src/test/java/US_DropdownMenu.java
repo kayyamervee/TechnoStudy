@@ -21,7 +21,7 @@ public class US_DropdownMenu extends BaseDriver {
         new Actions(driver).moveToElement(element.coursesBtn).perform();
 
         int randomCourses=(int)(Math.random()*element.courses.size());
-        String keyWordStr=element.courses.get(randomCourses).getText();
+        String keyWordStr=element.courses.get(randomCourses).getText().replaceAll("-"," ");
 
         wait.until(ExpectedConditions.elementToBeClickable(element.courses.get(randomCourses)));
         MyFunc.myClick(element.courses.get(randomCourses));
