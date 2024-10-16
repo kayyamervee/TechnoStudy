@@ -56,6 +56,9 @@ public class Runner extends BaseDriver {
 
         wait.until(ExpectedConditions.elementToBeClickable(elements.button));
         elements.button.click();
+
+        wait.until(ExpectedConditions.visibilityOf(elements.button));
+        Assert.assertTrue(elements.button.getText().contains("Login to campus failed"));
     }
 
     @Test(groups = "Smoke Test",priority = 3)
@@ -354,5 +357,23 @@ public class Runner extends BaseDriver {
         Assert.assertTrue(element.technoLogo.isDisplayed());
         MyFunc.myClick(element.technoLogo);
         Assert.assertTrue(element.homepageControl.isDisplayed());
+    }
+
+    @Test(groups = "Regression Test",priority = 8)
+    @Parameters("browserType")
+    public void TermsOfUse(){
+        TermsOfUse_POM elements=new TermsOfUse_POM();
+
+        driver.get(ConfigReader.getProperty("termsOfUseURL"));
+        wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("termsOfUseURL")));
+
+        wait.until(ExpectedConditions.elementToBeClickable(elements.checkbox));
+        elements.checkbox.click();
+
+        wait.until(ExpectedConditions.elementToBeClickable(elements.termsOfUse));
+        elements.termsOfUse.click();
+
+        wait.until(ExpectedConditions.visibilityOf(elements.termsOfUse));
+        Assert.assertTrue(elements.termsOfUse.getText().contains("Terms of Use document not found."));
     }
 }

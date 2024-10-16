@@ -10,9 +10,6 @@ public class US_CrossToCampus extends BaseDriver {
     public void crossToCampus() {
         CrossToCampus_POM elements = new CrossToCampus_POM();
 
-        driver.get(ConfigReader.getProperty("URL"));
-        wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("URL")));
-
         wait.until(ExpectedConditions.elementToBeClickable(elements.campusLogin));
         elements.campusLogin.click();
 
@@ -27,6 +24,5 @@ public class US_CrossToCampus extends BaseDriver {
 
         wait.until(ExpectedConditions.visibilityOf(elements.button));
         Assert.assertTrue(elements.button.getText().contains("Login to campus failed"));
-
     }
 }
