@@ -21,5 +21,6 @@ public class US_TermsOfUse extends BaseDriver {
 
         wait.until(ExpectedConditions.visibilityOf(elements.termsOfUse));
         Assert.assertTrue(elements.termsOfUse.getText().contains("Terms of Use document not found."));
+
     }
 }
