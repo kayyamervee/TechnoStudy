@@ -13,7 +13,6 @@ import org.testng.annotations.Parameters;
 import java.time.Duration;
 
 public class BaseDriver {
-
     public static WebDriver driver;
     public static WebDriverWait wait;
 
