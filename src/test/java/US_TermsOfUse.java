@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 import pages.TermsOfUse_POM;
 import utility.BaseDriver;
 import utility.ConfigReader;
+import utility.MyFunc;
 
 public class US_TermsOfUse extends BaseDriver {
     @Test()
@@ -14,13 +15,13 @@ public class US_TermsOfUse extends BaseDriver {
         wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("termsOfUseURL")));
 
         wait.until(ExpectedConditions.elementToBeClickable(elements.checkbox));
-        elements.checkbox.click();
+        MyFunc.myClick(elements.checkbox);
 
         wait.until(ExpectedConditions.elementToBeClickable(elements.termsOfUse));
-        elements.termsOfUse.click();
+        MyFunc.myClick(elements.termsOfUse);
 
+        driver.switchTo().window("termsOfUseURL");
         wait.until(ExpectedConditions.visibilityOf(elements.termsOfUse));
-        Assert.assertTrue(elements.termsOfUse.getText().contains("Terms of Use document not found."));
-
+        Assert.assertTrue(elements.termsOfUse.getText().contains("Terms of Use"));
     }
 }

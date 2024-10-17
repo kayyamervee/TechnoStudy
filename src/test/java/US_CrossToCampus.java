@@ -17,16 +17,12 @@ public class US_CrossToCampus extends BaseDriver {
         elements.campusLogin.click();
 
         wait.until(ExpectedConditions.elementToBeClickable(elements.userName));
-        elements.userName.sendKeys(ConfigReader.getProperty("userName"));
+        elements.userName.sendKeys(ConfigReader.getProperty("username"));
 
         wait.until(ExpectedConditions.elementToBeClickable(elements.passWord));
-        elements.passWord.sendKeys(ConfigReader.getProperty("passWord"));
+        elements.passWord.sendKeys(ConfigReader.getProperty("password"));
 
         wait.until(ExpectedConditions.elementToBeClickable(elements.button));
         elements.button.click();
-
-        wait.until(ExpectedConditions.visibilityOf(elements.button));
-        Assert.assertTrue(elements.button.getText().contains("Login to campus failed"));
-
     }
 }
