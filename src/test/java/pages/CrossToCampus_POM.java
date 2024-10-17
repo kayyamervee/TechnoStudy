@@ -12,14 +12,14 @@ public class CrossToCampus_POM{
     @FindBy(xpath = "//a[text()='Campus Login']")
     public WebElement campusLogin;
 
+    @FindBy(css = "[class='logo'] img")
+    public WebElement campusLoginControl;
+
     @FindBy(id = "mat-input-0")
     public WebElement userName;
 
     @FindBy(id = "mat-input-1")
-    public WebElement passWord;
-
-    @FindBy(xpath = "//span[text()=' GİRİŞ YAP ']")
-    public WebElement button;
+    public WebElement password;
 }
 
 
