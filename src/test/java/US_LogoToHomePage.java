@@ -1,3 +1,4 @@
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
@@ -7,6 +8,8 @@ import utility.BaseDriver;
 import utility.ConfigReader;
 import utility.MyFunc;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 
 public class US_LogoToHomePage extends BaseDriver {
@@ -39,36 +42,29 @@ public class US_LogoToHomePage extends BaseDriver {
         String homepageHandle = driver.getWindowHandle();
         Set<String> handles = driver.getWindowHandles();
 
-        wait.until(ExpectedConditions.elementToBeClickable(element.termsofUseBtn));
-        MyFunc.scrollToElement(element.termsofUseBtn);
-        MyFunc.myClick(element.termsofUseBtn);
-        for (String handle : handles) {
-            if (!handle.equals(homepageHandle)) {
-                driver.switchTo().window(handle);
-                Assert.assertTrue(element.termsofUseControl.getText().contains(element.termsofUseBtn.getText()));
-                MyFunc.myClick(element.logoImg);
-                MyFunc.Wait(5);
-                break;
-            }
-        }
+        List<WebElement> buttons = Arrays.asList(
+                element.termsofUseBtn, element.cookiePolicyBtn, element.privacyPolicyBtn
+        );
 
-        wait.until(ExpectedConditions.elementToBeClickable(element.cookiePolicyBtn));
-        MyFunc.myClick(element.cookiePolicyBtn);
-        for (String handle : handles) {
-            if (!handle.equals(homepageHandle)) {
-                driver.switchTo().window(handle);
-                Assert.assertTrue(element.termsofUseControl.getText().contains(element.cookiePolicyBtn.getText()));
-                MyFunc.myClick(element.logoImg);
-            }
-        }
+        List<WebElement> controls = Arrays.asList(
+                element.termsofUseControl, element.cookiePolicyControl, element.privacyPolicyControl
+        );
 
-        wait.until(ExpectedConditions.elementToBeClickable(element.privacyPolicyBtn));
-        MyFunc.myClick(element.privacyPolicyBtn);
-        for (String handle : handles) {
-            if (!handle.equals(homepageHandle)) {
-                driver.switchTo().window(handle);
-                Assert.assertTrue(element.termsofUseControl.getText().contains(element.privacyPolicyBtn.getText()));
-                MyFunc.myClick(element.logoImg);
+        for (int i = 0; i < buttons.size(); i++) {
+            WebElement button = buttons.get(i);
+            WebElement control = controls.get(i);
+
+            wait.until(ExpectedConditions.elementToBeClickable(button));
+            MyFunc.scrollToElement(button);
+            MyFunc.myClick(button);
+
+            for (String handle : handles) {
+                if (!handle.equals(homepageHandle)) {
+                    driver.switchTo().window(handle);
+                    Assert.assertTrue(control.getText().contains(button.getText()));
+                    MyFunc.myClick(element.logoImg);
+                    break;
+                }
             }
         }
     }

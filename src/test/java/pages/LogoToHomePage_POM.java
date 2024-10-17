@@ -34,6 +34,12 @@ public class LogoToHomePage_POM {
     @FindBy(xpath = "//div[@field='title']")
     public WebElement termsofUseControl;
 
+    @FindBy(xpath = "//div[@field='title']")
+    public WebElement cookiePolicyControl;
+
+    @FindBy(xpath = "//div[@field='title']")
+    public WebElement privacyPolicyControl;
+
     @FindBy(linkText = "Gizlilik Politikası")
     public WebElement privacyPolicyBtn;
 
