@@ -1,19 +1,81 @@
 # Agile Software Testing Project - TechnoStudy
 ### *This project is for educational purposes and is intended to help participants test their own skills.*
 
-## Table of Contents
-- [Project Overview](#project-overview)
-- [Features Tested](#features-tested)
-- [Team6 Practice Project](#team6-practice-project)
-- [Technologies and Tools Used](#technologies-and-tools-used)
-- [Prerequisites](#prerequisites)
-- [Pull Request Rules](#pull-request-rules)
-- [Contributors](#contributors)
-- [License](#license)
-
 ## Project Overview
 
 ### *This project focuses on automating tests for the Techno Study website using TestNG, a popular testing framework for Java. The aim is to ensure that various functionalities of the website work correctly while maintaining data integrity on the live environment.*
+
+## Features Tested
+#### The following user stories are tested in this project:
+
+### US501_Dropdown Menu
+
+* *Verify the presence of a dropdown menu under "Kurslar" or "Courses".*
+* *Ensure all available courses are listed upon clicking the dropdown.*
+* *Check that each course name is visible.*
+* *Confirm redirection to the selected course page.*
+
+### US502_Cross Campus
+
+* *Verify the presence of a "Campus Girişi" or "Log in to Campus" option.*
+* *Ensure clicking this option redirects to the Campus login page.*
+
+### US503_Booking
+
+* *Confirm the presence of an "Apply" button on the homepage.*
+* *Verify redirection to the application form upon clicking "Apply".*
+* *Ensure the form is easily fillable with required information.*
+* *Validate that "test" is included in name and email fields, and country is set to "Andorra".*
+* *Check for a confirmation message after submission.*
+
+### US504_Submenu Courses
+
+* *Verify the presence of a "Kurslar" or "Courses" submenu.*
+* *Ensure a list of courses or submenus appears upon selection.*
+* *Check that each course has a name and brief description.*
+* *Validate redirection to the course page upon selection.*
+
+### US505_Submenu Social Media
+
+* *Confirm the presence of social media links in the footer.*
+* *Verify visibility of each social media account name and/or icon.*
+* *Ensure clicking on a link redirects to the corresponding social media page.*
+
+### US506_Logo to Homepage
+
+* *Ensure the Techno Study logo is present on every page.*
+* *Validate redirection to the homepage upon clicking the logo.*
+
+### US507_Course Details
+
+* *Verify that each course has a "More Info" button in the "Kendi Kursunu Seç" section.*
+* *Ensure redirection to the course detail page upon clicking the button.*
+* *Check for the presence of the Techno Study logo on the course detail page.*
+
+### US508_Terms Of Use
+
+* *Confirm the presence of the "I have read and accept the terms" option in the contact form.*
+* *Ensure clicking this option redirects to the "Terms of Use" page.*
+* *Validate that the "Terms of Use" page is well-structured for readability.*
+
+## Team6 Practice Project
+
+- #### Domain:  [techno.study](https://techno.study/tr)
+
+- #### Supported browsers: [Chrome](), [Edge](), [Firefox]()
+
+## Technologies and Tools Used
+
+#### *The basic technologies and tools to be used in this project include:*
+
+- **Java** - Programming language
+- **Selenium** - Web browser automation
+- **TestNG** - Testing framework.
+- **Apache POI** - Library for reading and writing Excel files
+- **Git & GitHub** - Version control Systems 
+- **JIRA & Zephyr-Squad** - Test management Tools
+- **Page Object Model (POM)** - Test Automation Pattern
+
 
 ## Prerequisites
 
@@ -44,12 +106,6 @@
 
 **5. Live Environment Considerations:** Use "test" in the name and email fields to facilitate data cleanup post-testing, and set the country to "Argentina".
 
-## Team6 Practice Project
-
-- #### Domain:  [techno.study](https://techno.study/tr)
-
-- #### Supported browsers: [Chrome](), [Edge](), [Firefox]()
-
 
 ## Contributors & Team Members
 
@@ -60,3 +116,6 @@
 | [Ümmühan Teke](https://github.com/UmmuhanTeke)            | QA Automation Engineer                |  [505 - 507]   |
 | [Songül Çam](https://github.com/songulcam)                | QA Automation Engineer                |  [502 - 508]   |
 
+## License  
+
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
