@@ -44,6 +44,13 @@
 
 **5. Live Environment Considerations:** Use "test" in the name and email fields to facilitate data cleanup post-testing, and set the country to "Argentina".
 
+## Team6 Practice Project
+
+- #### Domain:  [techno.study](https://techno.study/tr)
+
+- #### Supported browsers: [Chrome](), [Edge](), [Firefox]()
+
+
 ## Contributors & Team Members
 
 | Contributor                                               | Role                                  |User Stories    |
