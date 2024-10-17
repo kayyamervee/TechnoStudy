@@ -292,7 +292,6 @@ public class Runner extends BaseDriver {
                     driver.switchTo().window(handle);
                     Assert.assertTrue(control.getText().contains(button.getText()));
                     MyFunc.myClick(element.logoImg);
-                    break;
                 }
             }
         }
