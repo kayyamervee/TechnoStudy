@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 import pages.CrossToCampus_POM;
 import utility.BaseDriver;
 import utility.ConfigReader;
+import utility.MyFunc;
 
 public class US_CrossToCampus extends BaseDriver {
     @Test()
@@ -14,7 +15,7 @@ public class US_CrossToCampus extends BaseDriver {
         wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("URL")));
 
         wait.until(ExpectedConditions.elementToBeClickable(elements.campusLogin));
-        elements.campusLogin.click();
+        MyFunc.myClick(elements.campusLogin);
 
         wait.until(ExpectedConditions.elementToBeClickable(elements.userName));
         elements.userName.sendKeys(ConfigReader.getProperty("username"));
@@ -23,6 +24,6 @@ public class US_CrossToCampus extends BaseDriver {
         elements.passWord.sendKeys(ConfigReader.getProperty("password"));
 
         wait.until(ExpectedConditions.elementToBeClickable(elements.button));
-        elements.button.click();
+        MyFunc.myClick(elements.button);
     }
 }
