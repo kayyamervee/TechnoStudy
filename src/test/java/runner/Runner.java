@@ -1,6 +1,7 @@
 package runner;
 
 import com.github.javafaker.Faker;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,16 +21,16 @@ public class Runner extends BaseDriver {
     public static Faker faker = new Faker();
     public static Random random = new Random();
 
-    @Test(groups = "Smoke Test",priority = 1)
+    @Test(groups = "Smoke Test", priority = 1)
     @Parameters("browserType")
-    public void dropDownMenu(){
-        Dropdown_POM element=new Dropdown_POM();
+    public void dropDownMenu() {
+        Dropdown_POM element = new Dropdown_POM();
 
         wait.until(ExpectedConditions.elementToBeClickable(element.coursesBtn));
         new Actions(driver).moveToElement(element.coursesBtn).perform();
 
-        int randomCourses=(int)(Math.random()*element.courses.size());
-        String keyWordStr=element.courses.get(randomCourses).getText().replaceAll("-"," ");
+        int randomCourses = (int) (Math.random() * element.courses.size());
+        String keyWordStr = element.courses.get(randomCourses).getText().replaceAll("-", " ");
 
         wait.until(ExpectedConditions.elementToBeClickable(element.courses.get(randomCourses)));
         MyFunc.myClick(element.courses.get(randomCourses));
@@ -37,28 +38,35 @@ public class Runner extends BaseDriver {
         Assert.assertTrue(driver.getTitle().contains(keyWordStr));
     }
 
-    @Test(groups = "Smoke Test",priority = 2)
+    @Test(groups = "Smoke Test", priority = 2)
     @Parameters("browserType")
     public void crossToCampus() {
         CrossToCampus_POM elements = new CrossToCampus_POM();
 
-        wait.until(ExpectedConditions.elementToBeClickable(elements.campusLogin));
-        elements.campusLogin.click();
+        driver.get(ConfigReader.getProperty("URL"));
+        wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("URL")));
 
-        wait.until(ExpectedConditions.elementToBeClickable(elements.userName));
-        elements.userName.sendKeys(ConfigReader.getProperty("username"));
+        Assert.assertTrue(elements.campusLogin.isEnabled());
+        MyFunc.myClick(elements.campusLogin);
+        Assert.assertTrue(elements.campusLoginControl.isDisplayed());
 
-        wait.until(ExpectedConditions.elementToBeClickable(elements.passWord));
-        elements.passWord.sendKeys(ConfigReader.getProperty("password"));
+        Assert.assertTrue(elements.userName.isEnabled());
+        MyFunc.mySendKeys(elements.userName, ConfigReader.getProperty("username"));
+        Assert.assertTrue(elements.userName.isDisplayed());
 
-        wait.until(ExpectedConditions.elementToBeClickable(elements.button));
-        elements.button.click();
+        Assert.assertTrue(elements.password.isEnabled());
+        MyFunc.mySendKeys(elements.password, ConfigReader.getProperty("password"));
+        Assert.assertTrue(elements.userName.isDisplayed());
 
-        wait.until(ExpectedConditions.visibilityOf(elements.button));
-        Assert.assertTrue(elements.button.getText().contains("Login to campus failed"));
+        Assert.assertTrue(elements.loginButton.isEnabled());
+        MyFunc.myClick(elements.loginButton);
+
+        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//hot-toast-container/div/div/div//*"), 0));
+        WebElement messageBox = BaseDriver.driver.findElement(By.tagName("mat-panel-description"));
+        Assert.assertTrue(messageBox.getAttribute("innerHTML").toLowerCase().contains("Invalid username".toLowerCase()));
     }
 
-    @Test(groups = "Smoke Test",priority = 3)
+    @Test(groups = "Smoke Test", priority = 3)
     @Parameters("browserType")
     public void bookingTest() {
         Booking_POM element = new Booking_POM();
@@ -136,7 +144,7 @@ public class Runner extends BaseDriver {
         }
     }
 
-    @Test(groups = "Regression Test",priority = 4)
+    @Test(groups = "Regression Test", priority = 4)
     @Parameters("browserType")
     public void subMenuCourses() {
         SubmenuCourses_POM element = new SubmenuCourses_POM();
@@ -198,7 +206,7 @@ public class Runner extends BaseDriver {
         Assert.assertTrue(element.jobCenterShortText.getText().contains("Techno"));
     }
 
-    @Test(groups = "Regression Test",priority = 5)
+    @Test(groups = "Regression Test", priority = 5)
     @Parameters("browserType")
     public void submenuSocialMedia() {
         SubmenuSocialMedia_POM element = new SubmenuSocialMedia_POM();
@@ -244,7 +252,7 @@ public class Runner extends BaseDriver {
         Assert.assertTrue(element.technoLogo.isDisplayed());
     }
 
-    @Test(groups = "Regression Test",priority = 6)
+    @Test(groups = "Regression Test", priority = 6)
     @Parameters("browserType")
     public void logoToHomePage() {
         LogoToHomePage_POM element = new LogoToHomePage_POM();
@@ -297,7 +305,7 @@ public class Runner extends BaseDriver {
         }
     }
 
-    @Test(groups = "Regression Test",priority = 7)
+    @Test(groups = "Regression Test", priority = 7)
     @Parameters("browserType")
     public void courseDetails() {
         CourseDetails_POM element = new CourseDetails_POM();
@@ -348,10 +356,10 @@ public class Runner extends BaseDriver {
         Assert.assertTrue(element.homepageControl.isDisplayed());
     }
 
-    @Test(groups = "Regression Test",priority = 8)
+    @Test(groups = "Regression Test", priority = 8)
     @Parameters("browserType")
-    public void TermsOfUse(){
-        TermsOfUse_POM elements=new TermsOfUse_POM();
+    public void TermsOfUse() {
+        TermsOfUse_POM elements = new TermsOfUse_POM();
 
         driver.get(ConfigReader.getProperty("termsOfUseURL"));
         wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("termsOfUseURL")));

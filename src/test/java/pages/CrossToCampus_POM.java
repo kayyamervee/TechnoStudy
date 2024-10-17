@@ -20,6 +20,9 @@ public class CrossToCampus_POM{
 
     @FindBy(id = "mat-input-1")
     public WebElement password;
+
+    @FindBy(xpath = "//span[text()=' LOGIN '] ")
+    public WebElement loginButton;
 }
 
 
