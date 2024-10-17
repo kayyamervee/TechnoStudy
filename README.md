@@ -68,6 +68,18 @@
 * *Ensure clicking this option redirects to the "Terms of Use" page.*
 * *Validate that the "Terms of Use" page is well-structured for readability.*
 
+## Technologies and Tools Used
+
+The basic technologies and tools to be used in this project include:
+
+- **Java** - Programming language
+- **Selenium** - Web browser automation
+- **TestNG** - Testing framework.
+- **Apache POI** - Library for reading and writing Excel files
+- **Git & GitHub** - Version control Systems 
+- **JIRA & Zephyr-Squad** - Test management Tools
+- **Page Object Model (POM)** - Test Automation Pattern
+
 ## Prerequisites
 
 - **Java Development Kit (JDK):** Installed on your system for writing and compiling Java code.
@@ -108,8 +120,7 @@
 
 
 ## Team Members
-  
-| Contributor                                               | Role                                  |
+
 |-----------------------------------------------------------|---------------------------------------|
 | [Merve Kaya](https://github.com/kayyamervee)              | Project Lead & QA Automation Engineer |
 | [Sefa Kahraman](https://github.com/SefaKahramann)         | QA Automation Engineer                |
