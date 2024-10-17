@@ -1,6 +1,18 @@
 # Agile Software Testing Project - TechnoStudy
 ### *This project is for educational purposes and is intended to help participants test their own skills.*
 
+
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Features Tested](#features-tested)
+- [Team6 Practice Project](#team6-practice-project)
+- [Technologies and Tools Used](#technologies-and-tools-used)
+- [Prerequisites](#prerequisites)
+- [Project Requirements](#project-requirements)
+- [Contributors and Team Members](#contributors-and-team-members)
+- [License](#license)
+
+
 ## Project Overview
 
 ### *This project focuses on automating tests for the Techno Study website using TestNG, a popular testing framework for Java. The aim is to ensure that various functionalities of the website work correctly while maintaining data integrity on the live environment.*
@@ -107,7 +119,7 @@
 **5. Live Environment Considerations:** Use "test" in the name and email fields to facilitate data cleanup post-testing, and set the country to "Argentina".
 
 
-## Contributors & Team Members
+## Contributors and Team Members
 
 | Contributor                                               | Role                                  |User Stories    |
 |-----------------------------------------------------------|---------------------------------------|----------------|
