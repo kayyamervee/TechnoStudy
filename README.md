@@ -44,7 +44,8 @@
 
 **5. Live Environment Considerations:** Use "test" in the name and email fields to facilitate data cleanup post-testing, and set the country to "Argentina".
 
-## Contributors
+## Contributors & Team Members
+
 | Contributor                                               | Role                                  |User Stories    |
 |-----------------------------------------------------------|---------------------------------------|----------------|
 | [Merve Kaya](https://github.com/kayyamervee)              | Project Lead & QA Automation Engineer |  [503 - 504]   |
