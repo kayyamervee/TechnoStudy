@@ -1,26 +1,30 @@
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.TermsOfUse_POM;
 import utility.BaseDriver;
-import utility.ConfigReader;
+import utility.MyFunc;
+
+import java.util.Set;
 
 public class US_TermsOfUse extends BaseDriver {
+
     @Test()
-    public void TermsOfUse(){
-        TermsOfUse_POM elements=new TermsOfUse_POM();
+    public void TermsOfUse() {
+        TermsOfUse_POM elements = new TermsOfUse_POM();
 
-        driver.get(ConfigReader.getProperty("termsOfUseURL"));
-        wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("termsOfUseURL")));
+        MyFunc.scrollToElement(elements.checkbox);
 
-        wait.until(ExpectedConditions.elementToBeClickable(elements.checkbox));
-        elements.checkbox.click();
+        MyFunc.jsClick(elements.checkbox);
 
-        wait.until(ExpectedConditions.elementToBeClickable(elements.termsOfUse));
-        elements.termsOfUse.click();
+        MyFunc.myClick(elements.termsOfUse);
 
-        wait.until(ExpectedConditions.visibilityOf(elements.termsOfUse));
-        Assert.assertTrue(elements.termsOfUse.getText().contains("Terms of Use document not found."));
-
+        String homepage = driver.getWindowHandle();
+        Set<String> handles = driver.getWindowHandles();
+        for (String handle : handles) {
+            if (!handle.equals(homepage)) {
+                driver.switchTo().window(handle);
+                Assert.assertTrue(driver.getTitle().contains("Kullanım Şartları"));
+            }
+        }
     }
 }

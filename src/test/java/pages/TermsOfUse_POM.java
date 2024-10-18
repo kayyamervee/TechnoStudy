@@ -6,11 +6,14 @@ import org.openqa.selenium.support.PageFactory;
 import utility.BaseDriver;
 
 public class TermsOfUse_POM{
-    public TermsOfUse_POM(){PageFactory.initElements(BaseDriver.driver,this);
+
+    public TermsOfUse_POM(){
+        PageFactory.initElements(BaseDriver.driver,this);
     }
-    @FindBy(xpath = "//div[@class='t-checkbox__indicator']")
+
+    @FindBy(css = "[class='t-checkbox__control'] > input")
     public WebElement checkbox;
 
-    @FindBy(xpath = "//font[text()='Terms of Use']")
+    @FindBy(linkText = "Kullanım Şartlarını")
     public WebElement termsOfUse;
 }
