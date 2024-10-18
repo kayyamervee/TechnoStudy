@@ -129,7 +129,6 @@ public class Runner extends BaseDriver {
 
             MyFunc.myClick(element.submitButton);
 
-            System.out.println(element.confirmMessage.getText());
             Assert.assertTrue(element.confirmMessage.getText().contains("Başvurunuz"));
         }
     }
