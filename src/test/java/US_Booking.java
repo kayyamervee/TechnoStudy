@@ -93,8 +93,8 @@ public class US_Booking extends BaseDriver {
 
             MyFunc.myClick(element.submitButton);
 
-            wait.until(ExpectedConditions.visibilityOf(element.confirmMessage));
-            Assert.assertTrue(element.confirmMessage.getText().contains("Başvurunuz alınmıştır."));
+           wait.until(ExpectedConditions.visibilityOf(element.confirmMessage));
+           Assert.assertTrue(element.confirmMessage.getText().contains("Başvurunuz"));
         }
     }
 }

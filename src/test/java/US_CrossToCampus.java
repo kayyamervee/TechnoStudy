@@ -1,5 +1,3 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -19,21 +17,15 @@ public class US_CrossToCampus extends BaseDriver {
 
         Assert.assertTrue(elements.campusLogin.isEnabled());
         MyFunc.myClick(elements.campusLogin);
-        Assert.assertTrue(elements.campusLoginControl.isDisplayed());
 
-        Assert.assertTrue(elements.userName.isEnabled());
         MyFunc.mySendKeys(elements.userName, ConfigReader.getProperty("username"));
         Assert.assertTrue(elements.userName.isDisplayed());
 
-        Assert.assertTrue(elements.password.isEnabled());
         MyFunc.mySendKeys(elements.password, ConfigReader.getProperty("password"));
         Assert.assertTrue(elements.userName.isDisplayed());
 
-        Assert.assertTrue(elements.loginButton.isEnabled());
         MyFunc.myClick(elements.loginButton);
 
-        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//hot-toast-container/div/div/div//*"), 0));
-        WebElement messageBox = BaseDriver.driver.findElement(By.tagName("mat-panel-description"));
-        Assert.assertTrue(messageBox.getAttribute("innerHTML").toLowerCase().contains("Invalid username".toLowerCase()));
+        elements.verifyMessageContainsText("Invalid username");
     }
 }

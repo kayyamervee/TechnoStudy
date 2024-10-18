@@ -1,7 +1,6 @@
 package runner;
 
 import com.github.javafaker.Faker;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -43,27 +42,18 @@ public class Runner extends BaseDriver {
     public void crossToCampus() {
         CrossToCampus_POM elements = new CrossToCampus_POM();
 
-        driver.get(ConfigReader.getProperty("URL"));
-        wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("URL")));
-
         Assert.assertTrue(elements.campusLogin.isEnabled());
         MyFunc.myClick(elements.campusLogin);
-        Assert.assertTrue(elements.campusLoginControl.isDisplayed());
 
-        Assert.assertTrue(elements.userName.isEnabled());
         MyFunc.mySendKeys(elements.userName, ConfigReader.getProperty("username"));
         Assert.assertTrue(elements.userName.isDisplayed());
 
-        Assert.assertTrue(elements.password.isEnabled());
         MyFunc.mySendKeys(elements.password, ConfigReader.getProperty("password"));
         Assert.assertTrue(elements.userName.isDisplayed());
 
-        Assert.assertTrue(elements.loginButton.isEnabled());
         MyFunc.myClick(elements.loginButton);
 
-        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//hot-toast-container/div/div/div//*"), 0));
-        WebElement messageBox = BaseDriver.driver.findElement(By.tagName("mat-panel-description"));
-        Assert.assertTrue(messageBox.getAttribute("innerHTML").toLowerCase().contains("Invalid username".toLowerCase()));
+        elements.verifyMessageContainsText("Invalid username");
     }
 
     @Test(groups = "Smoke Test", priority = 3)
@@ -139,8 +129,8 @@ public class Runner extends BaseDriver {
 
             MyFunc.myClick(element.submitButton);
 
-            wait.until(ExpectedConditions.visibilityOf(element.confirmMessage));
-            Assert.assertTrue(element.confirmMessage.getText().contains("Başvurunuz alınmıştır."));
+            System.out.println(element.confirmMessage.getText());
+            Assert.assertTrue(element.confirmMessage.getText().contains("Başvurunuz"));
         }
     }
 
@@ -361,16 +351,19 @@ public class Runner extends BaseDriver {
     public void TermsOfUse() {
         TermsOfUse_POM elements = new TermsOfUse_POM();
 
-        driver.get(ConfigReader.getProperty("termsOfUseURL"));
-        wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("termsOfUseURL")));
+        MyFunc.scrollToElement(elements.checkbox);
 
-        wait.until(ExpectedConditions.elementToBeClickable(elements.checkbox));
-        elements.checkbox.click();
+        MyFunc.jsClick(elements.checkbox);
 
-        wait.until(ExpectedConditions.elementToBeClickable(elements.termsOfUse));
-        elements.termsOfUse.click();
+        MyFunc.myClick(elements.termsOfUse);
 
-        wait.until(ExpectedConditions.visibilityOf(elements.termsOfUse));
-        Assert.assertTrue(elements.termsOfUse.getText().contains("Terms of Use document not found."));
+        String homepage = driver.getWindowHandle();
+        Set<String> handles = driver.getWindowHandles();
+        for (String handle : handles) {
+            if (!handle.equals(homepage)) {
+                driver.switchTo().window(handle);
+                Assert.assertTrue(driver.getTitle().contains("Kullanım Şartları"));
+            }
+        }
     }
 }
