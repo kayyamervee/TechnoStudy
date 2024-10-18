@@ -54,6 +54,6 @@ public class Booking_POM {
     @FindBy(xpath = "//button[text()='Gönder']")
     public WebElement submitButton;
 
-    @FindBy(xpath = "(//p[@style='text-align: center;']/span[contains(text(),'Başvurunuz')])[2]")
+    @FindBy(xpath = "(//span[text()='Başvurunuz alınmıştır. Bilgilendirme emailinize gönderilmiştir.'])[1]")
     public WebElement confirmMessage;
 }
